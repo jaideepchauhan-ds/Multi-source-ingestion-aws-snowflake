@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "WriteRawAndManifests",
+      "Effect": "Allow",
+      "Action": "s3:PutObject",
+      "Resource": ["arn:aws:s3:::<BUCKET>/raw/*", "arn:aws:s3:::<BUCKET>/manifests/*"]
+    },
+    {
+      "Sid": "PublishAlerts",
+      "Effect": "Allow",
+      "Action": "sns:Publish",
+      "Resource": "arn:aws:sns:<REGION>:<ACCOUNT_ID>:ingestion-alerts"
+    }
+  ]
+}
